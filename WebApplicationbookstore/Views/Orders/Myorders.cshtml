@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebApplicationbookstore.Models.Orders>
+
+@{
+    ViewData["Title"] = "Myorders";
+}
+@{Layout = "~/Views/Shared/_Layout1.cshtml";}
+
+<h1>my orders</h1>
+                <a  asp-area="" asp-controller="Books" asp-action="Catalogue" class="btn btn-info">Back To Catalog</a>
+             
+
+<table class="bg-secondary text-white  table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookId)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Orderdate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookId)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Orderdate)
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a> *@
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">Details</a> 
+                @*<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

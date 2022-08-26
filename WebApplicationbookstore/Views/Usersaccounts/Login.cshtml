@@ -1,0 +1,46 @@
+﻿@*@{
+    ViewData["Title"] = "login";
+}*@
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+</head>
+
+
+
+@{
+	Layout = null;
+}
+
+<div class="bg-secondary text-white">
+	<form asp-action="Login">
+		<h2>Log-in</h2>
+		<div class="form-group">
+			<label class="control-label"> user Name</label>
+			<input name="na" class="form-control" />
+		</div>
+		<div class="form-group">
+			<label for="pa" class="control-label"> user Password</label>
+			<input name="pa" type="password" class="form-control" /> <br />
+		</div>
+		<input type="submit" value="Login" class="btn btn-primary" />
+
+		<p style="color:red"> @ViewData["message"]</p>
+		<label> Don't Have An Account? Click Here</label>
+		<br />
+		<a asp-action="Create" class="btn btn-info">
+			Create Account
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+				<path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+				<path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+			</svg>
+		</a>
+	</form>
+</div>
+
+
+

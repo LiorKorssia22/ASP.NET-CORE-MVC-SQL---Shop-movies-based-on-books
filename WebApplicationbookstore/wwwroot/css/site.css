@@ -1,0 +1,111 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+/*body*/
+body {
+    margin-bottom: 60px;
+    font-family: "Open Sans", sans-serif;
+    background-color: #040404;
+    color: #040404;
+    position: relative;
+    background: transparent;
+}
+
+    body::before {
+        content: "";
+        position: fixed;
+        background: #040404 url("..//movies.jpeg") top right no-repeat;
+        background-size: cover;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        z-index: -1;
+    }
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+    *::selection {
+        background: var(--blue);
+        color: #fff;
+    }
+
+@media (min-width: 1024px) {
+    body::before {
+        background-attachment: fixed;
+    }
+}
+
+a {
+    color: #2c08bb;
+}
+
+    a:hover {
+        color: #2c08bb;
+        text-decoration: none;
+    }
+
+/*    footer*/
+.footer {
+    background: #333;
+}
+
+    .footer .box-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+        .footer .box-container .box {
+            padding: 1rem 0;
+            flex: 1 1 25rem;
+        }
+
+            .footer .box-container .box h3 {
+                font-size: 1.5rem;
+                padding: .7rem 0;
+                color: #fff;
+            }
+
+            .footer .box-container .box p {
+                font-size: 1rem;
+                padding: .7rem 0;
+                color: #eee;
+            }
+
+            .footer .box-container .box a {
+                display: block;
+                font-size: 1rem;
+                padding: .7rem 0;
+                color: #eee;
+            }
+
+                .footer .box-container .box a:hover {
+                    color: var(--orange);
+                    text-decoration: underline;
+                }
+
+form{
+    text-align: center;
+}

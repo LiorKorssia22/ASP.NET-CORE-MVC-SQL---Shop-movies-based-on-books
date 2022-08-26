@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebApplicationbookstore.Models.Report>
+
+@{
+	ViewData["Title"] = "customerreport";
+}
+
+<h1>customer report</h1>
+
+@*<p>
+	<a asp-action="customerOrders" asp-route-id="@.Id">Details</a>
+
+</p>*@
+<table class="bg-secondary text-white  table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Customername)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Total)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+				<tr>
+					<td>
+					@Html.DisplayFor(modelItem => item.Customername)
+					</td>
+					<td>
+					₪@Html.DisplayFor(modelItem => item.Total)
+					</td>
+					<td>
+						<a asp-action="CustomerOrders" asp-route-id="@item.Id" class="btn btn-success">Details</a>
+					</td>
+				</tr>
+		}
+	</tbody>
+</table>

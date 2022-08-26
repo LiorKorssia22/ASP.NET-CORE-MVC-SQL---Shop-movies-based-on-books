@@ -1,0 +1,134 @@
+﻿@model WebApplicationbookstore.Models.Book
+
+
+@{
+	ViewData["Title"] = "Create";
+}
+@{
+	Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+
+<h1>Description &spades;</h1>
+<hr />
+<dl class="bg-secondary text-white  row">
+	<dt class="col-sm-2">
+		@Html.DisplayNameFor(model => model.Id)
+	</dt>
+	<dd class="col-sm-10">
+		@Html.DisplayFor(model => model.Id)
+	</dd>
+
+	<dt class="col-sm-2">
+		@Html.DisplayNameFor(model => model.Title)
+	</dt>
+	<dd class="col-sm-10">
+		@Html.DisplayFor(model => model.Title)
+	</dd>
+	<dt class="col-sm-2">
+		@Html.DisplayNameFor(model => model.Info)
+	</dt>
+	<dd class="col-sm-10">
+		@Html.DisplayFor(model => model.Info)
+	</dd>
+	<dt class="col-sm-2">
+		@Html.DisplayNameFor(model => model.Bookquantity)
+	</dt>
+	<dd class="col-sm-10">
+		@Html.DisplayFor(model => model.Bookquantity)
+	</dd>
+	<dt class="col-sm-2">
+		@Html.DisplayNameFor(model => model.Price)
+	</dt>
+	<dd class="col-sm-10">
+		₪@Html.DisplayFor(model => model.Price)
+	</dd>
+
+	<dt class="col-sm-2">
+		@Html.DisplayNameFor(model => model.Author)
+	</dt>
+	<dd class="col-sm-10">
+		@Html.DisplayFor(model => model.Author)
+	</dd>
+	<dt>
+		Picture:
+	</dt>
+	<dd>
+		<img src="~/images/@Model.Imgfile" height="150" />
+
+	</dd>
+</dl>
+
+@section scripts {
+	<script>
+		function addComment() {
+			alert('Comment Save!');
+		}
+		function addPurchase() {
+			alert('Purshase Success, Thank You! ');
+		}
+	</script>
+}
+
+	<div class="bg-secondary text-white  table">
+
+		<!-- TextBox Post Comment -->
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-6">
+
+					<form asp-action="Create" asp-controller="Comments">
+						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+						<input type="hidden" name="bookId" value=@Model.Id />
+
+						<div class="form-group">
+							@await Html.PartialAsync("_PartialView2", new Comment())
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Create" onclick="addComment()" class="btn btn-primary" />
+						</div>
+					</form>
+
+
+				</div>
+			</div>
+		</div>
+		<div>
+		</div>
+
+		<div>
+		</div>
+
+		<h4>orders</h4>
+		<hr />
+		<div class="row">
+			<div class="col-md-4">
+				<form asp-action="Create" asp-route-Id="@Model.BookComments">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<input type="hidden" name="bookId" value=@Model.Id />
+
+					<div class="form-group">
+						<label class="control-label">quantity:</label>
+						<input type="number" name="quantity" class="form-control" required />
+					</div>
+
+					<div class="form-group">
+						<input type="submit" value="Buy" onclick="addPurchase()" class="btn btn-primary" />
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div>
+			<a asp-controller="Books" asp-action="catalogue" class="btn btn-info">Back to Catalog</a>
+		</div>
+
+		<hr />
+
+	</div>
+
+
+
+
+
+

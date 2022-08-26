@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WebApplicationbookstore.Models.Comment>
+
+@{
+	ViewData["Title"] = "Index";
+}
+@{
+	Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>Comment index</h1>
+
+
+
+<table class="bg-secondary text-white  table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.BookId)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.CommentText)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.BookId)
+
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.CommentText)
+				</td>
+				<td>
+					@*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+					<a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
+					@*<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>*@
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+
+

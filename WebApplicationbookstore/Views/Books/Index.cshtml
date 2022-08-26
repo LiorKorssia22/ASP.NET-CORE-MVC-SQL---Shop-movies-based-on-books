@@ -1,0 +1,100 @@
+﻿@model IEnumerable<WebApplicationbookstore.Models.Book>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+
+<div class="bg-secondary text-white">
+
+	<h1>Index</h1>
+	<form asp-action="Index" method="get">
+		<div class="form-group">
+			<label for="SearchString">Search by Title</label>
+			<input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+			<input type="submit" value="Search" class="btn btn-primary" />
+		</div>
+	</form>
+	<br />
+
+	<form asp-action="Index" method="get">
+		<div class="form-group">
+			<label for="CatgorySelectAdmin">Search by Catgory</label>
+			<select name="CatgorySelectAdmin" class="col-md-2" value="@ViewData["CurrentFilterCatgory"]">
+				<option value="0">Please select</option>
+				<option value="1">Drama</option>
+				<option value="2">Action-Adventure</option>
+				<option value="3">Comedy</option>
+			</select>
+			<input type="submit" value="Search" class="btn btn-primary" />
+		</div>
+	</form>
+
+	<a asp-action="Index" class="btn btn-info">Back To Full List</a>
+</div>
+<hr />
+<p>
+	<a asp-action="Create" class="btn btn-info">Create New</a>
+</p>
+<table class="bg-secondary text-white  table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Title)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Info)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Bookquantity)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Price)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Cataid)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Author)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Imgfile)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Title)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Info)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Bookquantity)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Price)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Cataid)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Author)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Imgfile)
+				</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+					<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">Details</a>
+					<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

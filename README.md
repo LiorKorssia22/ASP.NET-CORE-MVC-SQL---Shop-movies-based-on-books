@@ -3,7 +3,11 @@ ASP.NET CORE MVC PROJECT In this project I built a movie store based on books wh
 
 
 
-https://user-images.githubusercontent.com/104680899/186936190-9d958a6d-d8d9-4338-bb68-248d311828d0.mp4
+
+https://user-images.githubusercontent.com/104680899/186937923-d7401aaf-a3d9-4c63-ba12-a6aeaa448747.mp4
+
+
+
 
 
 
